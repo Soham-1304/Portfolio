@@ -46,7 +46,7 @@ export default function Navbar({
               className="flex items-center gap-2.5 font-display font-extrabold text-ink hover:opacity-80 transition-opacity cursor-pointer select-none"
               aria-label="Soham Karandikar — home"
             >
-              <span className="h-8 w-8 sm:h-9 sm:w-9 rounded-xl bg-ink text-white flex items-center justify-center font-display font-extrabold text-xs sm:text-sm tracking-wider shadow-2xs">
+              <span className="h-8 w-8 sm:h-9 sm:w-9 rounded-xl bg-ink text-white flex items-center justify-center font-display font-extrabold text-xs sm:text-sm tracking-wider shadow-2xs ring-2 ring-transparent hover:ring-accent transition-all">
                 SK
               </span>
             </button>
@@ -62,7 +62,7 @@ export default function Navbar({
                   onClick={() => go(l.target)}
                   className={`text-xs font-semibold px-4 py-1.5 rounded-lg transition-all cursor-pointer ${
                     isActive
-                      ? "bg-ink text-white shadow-xs"
+                      ? "bg-accent text-ink shadow-xs font-bold"
                       : "text-mute hover:text-ink hover:bg-white"
                   }`}
                 >
@@ -81,7 +81,7 @@ export default function Navbar({
                   go("contact")
                 }
               }}
-              className="hidden sm:inline-flex items-center bg-ink text-white text-xs font-semibold px-4 py-2 rounded-lg hover:bg-ash transition-colors cursor-pointer shadow-xs"
+              className="hidden sm:inline-flex items-center bg-ink text-white text-xs font-semibold px-4 py-2 rounded-lg hover:bg-accent hover:text-ink transition-colors cursor-pointer shadow-xs"
             >
               Résumé
             </a>

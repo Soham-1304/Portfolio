@@ -57,7 +57,7 @@ export default function Hero({ onCta }: { onCta: () => void }) {
         {/* Cycling role subtitle */}
         <div className="h-8 overflow-hidden" style={step(2)}>
           <div className="flex items-center gap-3">
-            <span className="h-[3px] w-10 rounded-full bg-ink" />
+            <span className="h-[3px] w-10 rounded-full bg-accent" />
             <span
               key={roleIdx}
               className="font-body text-base md:text-lg font-medium text-ash inline-block"
@@ -80,9 +80,9 @@ export default function Hero({ onCta }: { onCta: () => void }) {
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mt-10" style={step(3)}>
           <button
             onClick={onCta}
-            className="relative self-start md:self-auto uppercase tracking-wide overflow-hidden inline-flex items-center gap-3 bg-ink text-white text-sm font-medium px-7 py-4 rounded-lg transition-transform hover:scale-[1.02] hover:shadow-lg active:scale-[0.98] cursor-pointer"
+            className="relative self-start md:self-auto uppercase tracking-wide overflow-hidden inline-flex items-center gap-3 bg-accent text-ink text-sm font-bold px-7 py-4 rounded-lg transition-all hover:scale-[1.02] hover:shadow-lg hover:bg-accent-dark active:scale-[0.98] cursor-pointer shadow-md"
           >
-            <ShineBorder shineColor={["#ffffff", "#cccccc"]} duration={8} borderWidth={1} />
+            <ShineBorder shineColor={["#ffffff", "#EEC90088"]} duration={6} borderWidth={1} />
             View My Work
             <ArrowRight className="transition-transform group-hover:translate-x-1" />
           </button>

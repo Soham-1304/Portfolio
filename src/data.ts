@@ -38,73 +38,79 @@ export const experience = {
 
 export const projects: Project[] = [
   {
-    id: "nexus",
-    name: "Nexus",
-    tagline: "Distributed task orchestrator & fault-tolerant scheduler",
+    id: "dhokha",
+    name: "Dhokha",
+    tagline: "Cross-bank UPI fraud intelligence & ONNX-powered ML detection",
     description:
-      "A high-throughput scheduler that coordinates long-running asynchronous jobs across worker pools with lease claiming, heartbeat monitoring, and automated dead-letter routing.",
-    domain: "nexus-demo.vercel.app",
-    demoUrl: "https://vite-react-template.vercel.app/",
-    github: "https://github.com/sohamk/nexus",
-    tags: ["Rust", "Redis", "PostgreSQL", "gRPC"],
+      "A full-stack fraud detection platform combining a React investigation dashboard, a FastAPI ML scoring service with ONNX inference, and graph-based swarm detection across cross-bank UPI transactions.",
+    domain: "dhokha-vert.vercel.app",
+    demoUrl: "https://dhokha-vert.vercel.app/",
+    github: "https://github.com/Soham-1304/Dhokha",
+    tags: ["React", "FastAPI", "Python", "ONNX", "Docker", "SQLite"],
     arch: [
-      { node: "CLI Client", kind: "client" },
-      { node: "Scheduler Core", kind: "service" },
-      { node: "Redis Queue", kind: "data" },
-      { node: "Distributed Workers", kind: "service" },
+      { node: "React Dashboard", kind: "client" },
+      { node: "FastAPI Scorer", kind: "service" },
+      { node: "ONNX ML Model", kind: "service" },
+      { node: "SQLite Store", kind: "data" },
     ],
     overview:
-      "Nexus coordinates background jobs with lease-based claiming, heartbeat monitoring, and configurable retry policies.",
+      "Dhokha is a fraud intelligence system for cross-bank UPI transactions. The FastAPI backend serves an ONNX-based fraud scoring model with graph-based swarm detection, while the React dashboard lets investigators drill into flagged transactions in real time.",
     problem:
-      "Existing cron-based systems couldn't handle partial failures or provide visibility into in-flight work across heterogeneous workers.",
-    contribution: "Designed the scheduler core, worker lease protocol, and observability hooks end-to-end.",
-    results: "Handles 12k jobs/day in staging with p99 dispatch latency under 200ms.",
+      "UPI fraud often involves coordinated swarms of accounts across multiple banks. Existing rule-based systems couldn't detect graph-level patterns or serve low-latency ML scores at investigation time.",
+    contribution:
+      "Built the full system end-to-end: trained and exported the ONNX fraud model, designed the FastAPI scoring service with Swagger docs, implemented graph-based swarm analysis, and wired the React investigation dashboard with preset scenario replay.",
+    results:
+      "ONNX CPU inference with no GPU dependency; Docker-containerized for ECS/App Runner with health-check endpoints; deterministic SQLite enables reproducible investigation scenarios.",
   },
   {
-    id: "pipeline",
-    name: "Pipeline",
-    tagline: "Real-time event stream processor & fan-out engine",
+    id: "evercare",
+    name: "Evercare",
+    tagline: "AI-driven personal health tracker with OCR & unified timeline",
     description:
-      "Ingests high-volume webhook events, validates strict schemas, and fans out to downstream consumer microservices with at-least-once delivery and deduplication.",
-    domain: "pipeline-demo.vercel.app",
-    demoUrl: "https://react.dev/",
-    github: "https://github.com/sohamk/pipeline",
-    tags: ["Python", "Kafka", "FastAPI", "Docker"],
+      "A comprehensive HealthTech platform that uses OCR and Google Gemini AI to extract and simplify medical documents, tracks vitals and doctor visits, and builds a unified personal health timeline with AI-powered insights.",
+    domain: "evercare-five.vercel.app",
+    demoUrl: "https://evercare-five.vercel.app/",
+    github: "https://github.com/Soham-1304/Evercare",
+    tags: ["React", "Node.js", "Supabase", "Gemini AI", "Tesseract.js", "Recharts"],
     arch: [
-      { node: "Webhook Ingest", kind: "external" },
-      { node: "FastAPI Gateway", kind: "service" },
-      { node: "Kafka Stream", kind: "data" },
-      { node: "Consumer Pool", kind: "service" },
+      { node: "React 19 Frontend", kind: "client" },
+      { node: "Express API", kind: "service" },
+      { node: "Gemini AI / OCR", kind: "external" },
+      { node: "Supabase DB & Auth", kind: "data" },
     ],
     overview:
-      "Pipeline transforms raw webhook payloads into typed events and routes them to registered handlers with deduplication.",
+      "Evercare lets users upload prescriptions and lab reports, extracts structured data via Gemini AI and Tesseract.js OCR, and displays a color-coded chronological health timeline. Vitals like blood pressure, blood sugar, and wearable metrics are tracked with Recharts visualizations.",
     problem:
-      "Teams needed a lightweight alternative to heavyweight stream platforms for moderate-throughput event routing.",
-    contribution: "Built the ingestion API, schema registry, and consumer SDK with idempotency keys.",
-    results: "Processes 500 events/sec in load tests with zero duplicate deliveries in happy-path scenarios.",
+      "Patients struggle to interpret and organize fragmented medical records across multiple providers. There was no unified, AI-simplified view of their own health history.",
+    contribution:
+      "Designed the full-stack architecture — React frontend with Recharts dashboards, Node.js/Express backend, Supabase for auth and storage, and integrated both Gemini AI (primary) and Tesseract.js (fallback) for OCR document processing.",
+    results:
+      "Supports real-time health alerts for abnormal readings, date-range AI chat analysis, and full health timeline export. Deployed on Vercel (frontend) and Render (backend API).",
   },
   {
-    id: "relay",
-    name: "Relay",
-    tagline: "RAG-powered documentation search & grounded question answering",
+    id: "quizstorm",
+    name: "QuizStorm",
+    tagline: "Real-time multiplayer trivia with backend-authoritative game logic",
     description:
-      "Indexes engineering docs and markdown wikis, performs hybrid semantic search over chunked vectors, and synthesizes answers with strict cited passages.",
-    domain: "relay-demo.vercel.app",
-    demoUrl: "https://tailwindcss.com/",
-    github: "https://github.com/sohamk/relay",
-    tags: ["TypeScript", "OpenAI", "Pinecone", "Next.js"],
+      "A MERN stack multiplayer quiz platform inspired by Kahoot, with backend-authoritative game state, Socket.IO real-time sync, server-side timers, and JWT authentication.",
+    domain: "quiz-storm.vercel.app",
+    demoUrl: "https://quiz-storm.vercel.app/",
+    github: "https://github.com/Soham-1304/QuizStorm",
+    tags: ["React", "Node.js", "MongoDB", "Socket.IO", "Express", "JWT"],
     arch: [
-      { node: "Search UI", kind: "client" },
-      { node: "FastAPI Engine", kind: "service" },
-      { node: "Vector Index", kind: "data" },
-      { node: "LLM Synthesizer", kind: "external" },
+      { node: "React Client", kind: "client" },
+      { node: "Express API", kind: "service" },
+      { node: "Socket.IO Engine", kind: "service" },
+      { node: "MongoDB", kind: "data" },
     ],
     overview:
-      "Relay indexes markdown and API docs, retrieves top-k chunks via hybrid search, and generates grounded answers.",
+      "QuizStorm is a real-time multiplayer trivia game where the backend is fully authoritative — it controls question order, game timers, answer validation, and score calculation. The React frontend is a dumb renderer that displays server state and emits user actions via Socket.IO.",
     problem:
-      "Engineers spent too long searching fragmented wikis; existing search lacked semantic understanding of technical queries.",
-    contribution: "Implemented chunking strategy, retrieval pipeline, and citation UI with feedback loop.",
-    results: "Reduced average doc lookup time from 4 min to 45 sec in internal pilot with 8 engineers.",
+      "Most quiz apps run timers and score logic on the client, making them trivially cheatable. QuizStorm demonstrates how latency-sensitive multiplayer games should handle state using a server-authoritative model.",
+    contribution:
+      "Built the full MERN stack: MongoDB schema for users/rooms/results, Express REST APIs for auth and room setup, the Socket.IO game engine for real-time event lifecycle, and the React frontend with clean Socket.IO client integration.",
+    results:
+      "Clean separation of concerns across REST and WebSocket layers; in-memory game state for live session speed with MongoDB persistence for completed games; JWT-secured room management.",
   },
 ]
 
@@ -214,7 +220,7 @@ export const certifications = [
 ]
 
 export const siteLinks = {
-  github: "https://github.com/soham-1304",
+  github: "https://github.com/Soham-1304",
   linkedin: "#",
   email: "soham.karandikar007@gmail.com",
   resume: "#",

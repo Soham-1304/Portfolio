@@ -12,6 +12,7 @@ import {
   SkillsHome,
 } from "./Sections"
 import { ExperienceDeep, ProjectsDeep, SkillsDeep } from "./DeepPages"
+import SmoothCursor from "./SmoothCursor"
 
 type Route =
   | { name: "home" }
@@ -83,45 +84,57 @@ export default function App() {
 
   if (route.name === "projects")
     return (
-      <div className="bg-white text-ink selection:bg-ink selection:text-white min-h-screen">
-        <Navbar onNav={goSection} activeRoute={route.name} />
-        <ProjectsDeep onBack={back} focus={route.focus} />
-        <Footer onNav={goSection} />
-      </div>
+      <>
+        <SmoothCursor />
+        <div className="bg-white text-ink selection:bg-ink selection:text-white min-h-screen">
+          <Navbar onNav={goSection} activeRoute={route.name} />
+          <ProjectsDeep onBack={back} focus={route.focus} />
+          <Footer onNav={goSection} />
+        </div>
+      </>
     )
 
   if (route.name === "experience")
     return (
-      <div className="bg-white text-ink selection:bg-ink selection:text-white min-h-screen">
-        <Navbar onNav={goSection} activeRoute={route.name} />
-        <ExperienceDeep onBack={back} />
-        <Footer onNav={goSection} />
-      </div>
+      <>
+        <SmoothCursor />
+        <div className="bg-white text-ink selection:bg-ink selection:text-white min-h-screen">
+          <Navbar onNav={goSection} activeRoute={route.name} />
+          <ExperienceDeep onBack={back} />
+          <Footer onNav={goSection} />
+        </div>
+      </>
     )
 
   if (route.name === "skills")
     return (
-      <div className="bg-white text-ink selection:bg-ink selection:text-white min-h-screen">
-        <Navbar onNav={goSection} activeRoute={route.name} />
-        <SkillsDeep onBack={back} />
-        <Footer onNav={goSection} />
-      </div>
+      <>
+        <SmoothCursor />
+        <div className="bg-white text-ink selection:bg-ink selection:text-white min-h-screen">
+          <Navbar onNav={goSection} activeRoute={route.name} />
+          <SkillsDeep onBack={back} />
+          <Footer onNav={goSection} />
+        </div>
+      </>
     )
 
   return (
-    <div className="bg-white text-ink selection:bg-ink selection:text-white min-h-screen flex flex-col">
-      <Navbar onNav={goSection} activeRoute={route.name} />
-      <main className="flex-1">
-        <Hero onCta={() => scrollTo("jigsaw")} />
-        <Jigsaw onSelect={scrollTo} />
-        <ExperienceHome onDeep={() => setRoute({ name: "experience" })} />
-        <ProjectsHome onDeep={(id) => setRoute({ name: "projects", focus: id })} />
-        <SkillsHome onDeep={() => setRoute({ name: "skills" })} />
-        <About />
-        <Achievements />
-        <CoCurricular />
-      </main>
-      <Footer onNav={goSection} />
-    </div>
+    <>
+      <SmoothCursor />
+      <div className="bg-white text-ink selection:bg-ink selection:text-white min-h-screen flex flex-col">
+        <Navbar onNav={goSection} activeRoute={route.name} />
+        <main className="flex-1">
+          <Hero onCta={() => scrollTo("jigsaw")} />
+          <Jigsaw onSelect={scrollTo} />
+          <ExperienceHome onDeep={() => setRoute({ name: "experience" })} />
+          <ProjectsHome onDeep={(id) => setRoute({ name: "projects", focus: id })} />
+          <SkillsHome onDeep={() => setRoute({ name: "skills" })} />
+          <About />
+          <Achievements />
+          <CoCurricular />
+        </main>
+        <Footer onNav={goSection} />
+      </div>
+    </>
   )
 }

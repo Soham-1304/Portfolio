@@ -29,8 +29,8 @@ export function SectionHead({
     <div ref={ref} className="reveal relative mb-10 md:mb-12" id={id} data-section-header={id}>
       <div className="flex items-start justify-between gap-4">
         <div>
-          <div className="inline-flex items-center gap-2 bg-ink text-white px-3 py-1 rounded-sm mb-3.5 shadow-xs">
-            <span className="h-1.5 w-1.5 rounded-full bg-white animate-pulse" />
+          <div className="inline-flex items-center gap-2 bg-accent text-ink px-3 py-1 rounded-sm mb-3.5 shadow-xs">
+            <span className="h-1.5 w-1.5 rounded-full bg-ink animate-pulse" />
             <span className="font-mono text-[11px] md:text-xs tracking-[0.2em] uppercase font-bold">
               {num}
             </span>
@@ -45,7 +45,7 @@ export function SectionHead({
         {/* Animated Pop-out Jigsaw Piece at Top-Right */}
         <div
           title="Interlocking module"
-          className="hidden sm:grid place-items-center h-11 w-11 rounded-xl bg-surface border border-line-strong text-ink shadow-xs shrink-0 transition-transform duration-300 hover:rotate-12 hover:scale-110 select-none"
+          className="hidden sm:grid place-items-center h-11 w-11 rounded-xl bg-surface border border-line-strong text-ink shadow-xs shrink-0 transition-all duration-300 hover:rotate-12 hover:scale-110 hover:bg-accent hover:border-accent-dark select-none"
         >
           <JigsawPieceIcon size={22} className="piece-pop" />
         </div>
@@ -58,7 +58,7 @@ function SeeMore({ onClick, label = "See more" }: { onClick: () => void; label?:
   return (
     <button
       onClick={onClick}
-      className="group inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wider border-b-2 border-ink pb-1 hover:gap-3.5 transition-all cursor-pointer"
+      className="group inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wider border-b-2 border-accent pb-1 hover:gap-3.5 transition-all cursor-pointer"
     >
       {label}
       <ArrowRight className="transition-transform group-hover:translate-x-1" />

@@ -28,7 +28,7 @@ function DeepShell({
       <header className="bg-ink text-white px-5 md:px-10 pt-24 pb-6 md:pt-28 md:pb-8 border-b border-line">
         <div className="max-w-[1240px] mx-auto flex items-center justify-between gap-4">
           <div>
-            <p className="eyebrow text-white/50 mb-1 font-mono text-[10px]">{kicker}</p>
+            <p className="eyebrow mb-1 font-mono text-[10px]" style={{ color: "#EEC900" }}>{kicker}</p>
             <h1 className="font-display font-extrabold text-3xl md:text-5xl tracking-tight text-white">
               {title}
             </h1>
@@ -198,7 +198,7 @@ export function ProjectsDeep({ onBack, focus }: { onBack: () => void; focus?: st
                   {/* Live Viewport Frame */}
                   <div className="relative flex-1 w-full bg-[#18181b] overflow-hidden">
                     {!iframeLoaded && (
-                      <div className="absolute inset-0 bg-[#18181b] flex flex-col items-center justify-center p-6 text-center z-10 animate-pulse text-white">
+                      <div className="absolute inset-0 bg-[#18181b] flex flex-col items-center justify-center p-6 text-center z-10 text-white">
                         <div className="h-8 w-8 rounded-full border-2 border-white border-t-transparent animate-spin mb-3" />
                         <p className="text-xs font-mono text-zinc-400">Loading live deploy for {p.name}...</p>
                       </div>
@@ -211,6 +211,17 @@ export function ProjectsDeep({ onBack, focus }: { onBack: () => void; focus?: st
                       sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
                       className="absolute inset-0 w-full h-full border-0 block bg-[#18181b]"
                       onLoad={() => setIframeLoaded(true)}
+                    />
+
+                    {/* Transparent overlay: captures mouse events for custom cursor.
+                        Click the overlay → show the "Interact" tooltip (overlay disappears on click to let user interact with iframe).
+                        We use pointer-events on the overlay itself, not on the iframe. */}
+                    <div
+                      className="absolute inset-0 z-20 group"
+                      style={{ pointerEvents: "none" }}
+                      onMouseMove={(e) => {
+                        window.dispatchEvent(new MouseEvent("mousemove", { clientX: e.clientX, clientY: e.clientY, bubbles: true }))
+                      }}
                     />
 
                     {/* Status Badge */}
