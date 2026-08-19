@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { ArrowRight, GitHubIcon } from "./lib"
+import { ArrowRight, GitHubIcon, LeetCodeIcon, LinkedInIcon } from "./lib"
 import { siteLinks } from "./data"
 
 const links = [
@@ -72,15 +72,11 @@ export default function Navbar({
             })}
           </nav>
 
-          <div className="flex items-center gap-2.5">
+          <div className="flex items-center gap-2 sm:gap-2.5">
             <a
               href={siteLinks.resume}
-              onClick={(e) => {
-                if (siteLinks.resume === "#") {
-                  e.preventDefault()
-                  go("contact")
-                }
-              }}
+              target="_blank"
+              rel="noopener noreferrer"
               className="hidden sm:inline-flex items-center bg-ink text-white text-xs font-semibold px-4 py-2 rounded-lg hover:bg-accent hover:text-ink transition-colors cursor-pointer shadow-xs"
             >
               Résumé
@@ -90,9 +86,30 @@ export default function Navbar({
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub"
+              title="GitHub"
               className="hidden sm:grid place-items-center h-8 w-8 border border-line-strong text-ink hover:bg-ink hover:text-white transition-colors rounded-lg bg-white"
             >
               <GitHubIcon size={16} />
+            </a>
+            <a
+              href={siteLinks.leetcode}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LeetCode"
+              title="LeetCode"
+              className="hidden sm:grid place-items-center h-8 w-8 border border-line-strong text-ink hover:bg-ink hover:text-white transition-colors rounded-lg bg-white"
+            >
+              <LeetCodeIcon size={15} />
+            </a>
+            <a
+              href={siteLinks.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              title="LinkedIn"
+              className="hidden sm:grid place-items-center h-8 w-8 border border-line-strong text-ink hover:bg-ink hover:text-white transition-colors rounded-lg bg-white"
+            >
+              <LinkedInIcon size={15} />
             </a>
             <button
               className="md:hidden grid place-items-center h-9 w-9 border border-line-strong rounded-lg bg-surface text-ink cursor-pointer"
@@ -153,7 +170,7 @@ export default function Navbar({
               </button>
             ))}
           </nav>
-          <div className="flex items-center gap-6 text-sm text-white/60 border-t border-white/10 pt-4 font-mono">
+          <div className="flex flex-wrap items-center gap-5 text-sm text-white/60 border-t border-white/10 pt-4 font-mono">
             <a
               href={siteLinks.github}
               target="_blank"
@@ -161,6 +178,14 @@ export default function Navbar({
               className="hover:text-white"
             >
               GitHub
+            </a>
+            <a
+              href={siteLinks.leetcode}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white"
+            >
+              LeetCode
             </a>
             <a
               href={siteLinks.linkedin}
@@ -172,13 +197,11 @@ export default function Navbar({
             </a>
             <a
               href={siteLinks.resume}
-              onClick={(e) => {
-                e.preventDefault()
-                go("contact")
-              }}
-              className="hover:text-white"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-accent transition-colors"
             >
-              Résumé
+              Résumé ↗
             </a>
           </div>
         </div>

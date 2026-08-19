@@ -15,25 +15,26 @@ export type Project = {
 }
 
 export const experience = {
-  org: "Meridian Systems",
-  role: "Backend Engineering Intern",
-  date: "Jun 2025 – Aug 2025",
-  location: "Remote",
+  org: "FOSSEE – IIT Bombay",
+  role: "Software Development Intern (Open Source)",
+  date: "May 2026 – Aug 2026",
+  location: "On-Site · IIT Bombay",
   summary:
-    "Owned ingestion pipelines and API contracts for a multi-tenant analytics platform serving 40+ internal teams.",
+    "Working inside OSDAG-BRIDGE, an open-source bridge design and structural analysis tool built by a 25+ contributor engineering team.",
   highlights: [
-    "Cut batch job latency by 38% by redesigning queue partitioning and back-pressure handling.",
-    "Shipped observability dashboards that reduced mean time to detect pipeline failures from hours to minutes.",
-    "Authored migration runbooks adopted by two downstream teams during a PostgreSQL major-version upgrade.",
+    "Wrote backend modules across CAD generation, plotting, and report-generation layers, wiring solver output through to the UI.",
+    "Built nodal-load visualization (Grillage overlay + toolbar controls) and LaTeX-driven report/plot auto-generation from analysis results.",
+    "Optimized and refactored core CAD/plotting code paths for speed and reuse; fixed cross-module bugs surfaced during integration testing.",
+    "Mastered industry Git/GitHub workflows on the job – branching, rebasing, resolving conflicts, and iterating through PR review cycles with the core team.",
   ],
-  tags: ["Go", "PostgreSQL", "Redis", "Docker", "gRPC"],
+  tags: ["Python", "Matplotlib", "LaTeX", "CAD Tooling", "Git", "Open Source"],
   openSource: [
-    { repo: "open-telemetry/go", note: "Added span attribute helpers for batch exporters" },
-    { repo: "grpc/grpc-go", note: "Fixed retry policy edge case in client interceptors" },
+    { repo: "Aditya-Donde/OsdagBridge", note: "Core CAD generation, nodal-load visualization, and LaTeX automated reporting" },
   ],
   fullDescription:
-    "Worked on the data platform team building reliable ingestion services. Focused on idempotent writes, schema evolution, and operational visibility across distributed workers.",
-  learnings: "Deepened understanding of back-pressure, exactly-once semantics, and production-grade observability.",
+    "Worked inside OSDAG-BRIDGE at FOSSEE IIT Bombay. Developed backend modules across the CAD generation, plotting, and report-generation layers, wiring structural solver outputs to interactive UI controls and automated LaTeX engineering reports.",
+  learnings:
+    "Deepened understanding of open-source team collaboration, multi-contributor PR review cycles, and high-performance CAD and plotting architecture.",
 }
 
 export const projects: Project[] = [
@@ -46,21 +47,21 @@ export const projects: Project[] = [
     domain: "dhokha-vert.vercel.app",
     demoUrl: "https://dhokha-vert.vercel.app/",
     github: "https://github.com/Soham-1304/Dhokha",
-    tags: ["React", "FastAPI", "Python", "ONNX", "Docker", "SQLite"],
+    tags: ["FastAPI", "LightGBM", "ONNX", "NetworkX", "WebSockets", "React", "Docker"],
     arch: [
       { node: "React Dashboard", kind: "client" },
       { node: "FastAPI Scorer", kind: "service" },
-      { node: "ONNX ML Model", kind: "service" },
-      { node: "SQLite Store", kind: "data" },
+      { node: "ONNX Risk Model", kind: "service" },
+      { node: "NetworkX Graph", kind: "data" },
     ],
     overview:
-      "Dhokha is a fraud intelligence system for cross-bank UPI transactions. The FastAPI backend serves an ONNX-based fraud scoring model with graph-based swarm detection, while the React dashboard lets investigators drill into flagged transactions in real time.",
+      "Dhokha is a fraud intelligence system for cross-bank UPI transactions. The FastAPI backend serves an ONNX-compiled LightGBM model combined with rule-based checks and NetworkX transaction graph centrality to catch fraud swarms in real time.",
     problem:
-      "UPI fraud often involves coordinated swarms of accounts across multiple banks. Existing rule-based systems couldn't detect graph-level patterns or serve low-latency ML scores at investigation time.",
+      "UPI fraud often involves coordinated swarms of accounts across multiple banks. Traditional rule-based checks fail to detect graph-level connection patterns or serve sub-100ms ML scores during live transaction streams.",
     contribution:
-      "Built the full system end-to-end: trained and exported the ONNX fraud model, designed the FastAPI scoring service with Swagger docs, implemented graph-based swarm analysis, and wired the React investigation dashboard with preset scenario replay.",
+      "Built the full platform end-to-end: trained and compiled the LightGBM model to ONNX for CPU inference, designed NetworkX graph scoring for mule networks, exposed WebSocket event streams, and shipped the React investigation dashboard with Docker containerization.",
     results:
-      "ONNX CPU inference with no GPU dependency; Docker-containerized for ECS/App Runner with health-check endpoints; deterministic SQLite enables reproducible investigation scenarios.",
+      "Scores every transaction 0–100 in real time with zero GPU dependency; containerized for AWS EC2/ECS/App Runner behind Nginx + TLS with persisted transaction history.",
   },
   {
     id: "evercare",
@@ -71,21 +72,21 @@ export const projects: Project[] = [
     domain: "evercare-five.vercel.app",
     demoUrl: "https://evercare-five.vercel.app/",
     github: "https://github.com/Soham-1304/Evercare",
-    tags: ["React", "Node.js", "Supabase", "Gemini AI", "Tesseract.js", "Recharts"],
+    tags: ["React 19", "Node.js", "Express", "Supabase", "Gemini AI", "OCR", "Recharts"],
     arch: [
-      { node: "React 19 Frontend", kind: "client" },
-      { node: "Express API", kind: "service" },
-      { node: "Gemini AI / OCR", kind: "external" },
-      { node: "Supabase DB & Auth", kind: "data" },
+      { node: "React 19 UI", kind: "client" },
+      { node: "Express REST API", kind: "service" },
+      { node: "Gemini AI + OCR", kind: "external" },
+      { node: "Supabase DB (RLS)", kind: "data" },
     ],
     overview:
-      "Evercare lets users upload prescriptions and lab reports, extracts structured data via Gemini AI and Tesseract.js OCR, and displays a color-coded chronological health timeline. Vitals like blood pressure, blood sugar, and wearable metrics are tracked with Recharts visualizations.",
+      "Evercare automates medical record extraction from lab reports and prescriptions using Gemini AI + OCR, providing a color-coded chronological health timeline, smart abnormal reading alerts, vitals tracking, and date-range AI health conversations.",
     problem:
-      "Patients struggle to interpret and organize fragmented medical records across multiple providers. There was no unified, AI-simplified view of their own health history.",
+      "Patients struggle to interpret and organize fragmented medical records across multiple providers. There was no unified, AI-simplified view of their personal health history with strict data isolation.",
     contribution:
-      "Designed the full-stack architecture — React frontend with Recharts dashboards, Node.js/Express backend, Supabase for auth and storage, and integrated both Gemini AI (primary) and Tesseract.js (fallback) for OCR document processing.",
+      "Architected the full-stack system with Supabase authentication and Row-Level Security (RLS), modular controller-service REST APIs, Recharts metric dashboards, and the dual Gemini AI + Tesseract.js OCR processing pipeline.",
     results:
-      "Supports real-time health alerts for abnormal readings, date-range AI chat analysis, and full health timeline export. Deployed on Vercel (frontend) and Render (backend API).",
+      "Provides multi-tenant data isolation across user roles, automated extraction of abnormal lab values, and real-time vitals tracking deployed across Vercel and Render.",
   },
   {
     id: "quizstorm",
@@ -96,21 +97,21 @@ export const projects: Project[] = [
     domain: "quiz-storm.vercel.app",
     demoUrl: "https://quiz-storm.vercel.app/",
     github: "https://github.com/Soham-1304/QuizStorm",
-    tags: ["React", "Node.js", "MongoDB", "Socket.IO", "Express", "JWT"],
+    tags: ["React", "Node.js", "Express", "MongoDB", "Socket.IO", "JWT"],
     arch: [
       { node: "React Client", kind: "client" },
       { node: "Express API", kind: "service" },
       { node: "Socket.IO Engine", kind: "service" },
-      { node: "MongoDB", kind: "data" },
+      { node: "MongoDB Store", kind: "data" },
     ],
     overview:
-      "QuizStorm is a real-time multiplayer trivia game where the backend is fully authoritative — it controls question order, game timers, answer validation, and score calculation. The React frontend is a dumb renderer that displays server state and emits user actions via Socket.IO.",
+      "QuizStorm is a real-time multiplayer trivia game where the backend is fully authoritative — the server exclusively controls all question ordering, timer countdowns, answer validation, and score computation, while the React frontend acts as a pure reactive renderer.",
     problem:
-      "Most quiz apps run timers and score logic on the client, making them trivially cheatable. QuizStorm demonstrates how latency-sensitive multiplayer games should handle state using a server-authoritative model.",
+      "Most trivia apps run timers and scoring on the client, making them prone to tampering. QuizStorm demonstrates how latency-sensitive multiplayer games should synchronize state authoritatively over WebSockets.",
     contribution:
-      "Built the full MERN stack: MongoDB schema for users/rooms/results, Express REST APIs for auth and room setup, the Socket.IO game engine for real-time event lifecycle, and the React frontend with clean Socket.IO client integration.",
+      "Engineered the Socket.IO real-time game lifecycle, event-driven leaderboard sync, scalable MongoDB schemas with clean separation of API/socket/middleware layers, and complete JWT-based game room management.",
     results:
-      "Clean separation of concerns across REST and WebSocket layers; in-memory game state for live session speed with MongoDB persistence for completed games; JWT-secured room management.",
+      "Fast in-memory game state for live gameplay combined with persistent MongoDB session history and secure JWT authentication for room lifecycles.",
   },
 ]
 
@@ -133,95 +134,107 @@ const dv = (name: string, variant = "original") =>
 
 export const skillCategories: SkillGroup[] = [
   {
-    name: "Core Languages",
-    description: "Primary languages for systems programming, backend services, and tooling.",
+    name: "Languages",
+    description: "Primary programming languages for systems, backend services, and algorithms.",
     skills: [
-      { name: "Python", experience: "3+ yrs", focus: "Async, FastAPI, ML", logo: dv("python"), tier: "gold" },
-      { name: "Go", experience: "1.5+ yrs", focus: "Concurrency, gRPC, CLI", logo: dv("go", "original-wordmark"), tier: "gold" },
-      { name: "TypeScript", experience: "2+ yrs", focus: "React, Node, Type-safety", logo: dv("typescript"), tier: "gold" },
-      { name: "Rust", experience: "1+ yr", focus: "Systems, Memory Safety", logo: dv("rust", "original"), tier: "silver" },
-      { name: "SQL", experience: "3+ yrs", focus: "Complex Queries, Tuning", logo: dv("azuresqldatabase"), tier: "gold" },
-      { name: "C++", experience: "2+ yrs", focus: "Data Structures, Algorithms", logo: dv("cplusplus"), tier: "silver" },
+      { name: "Python", experience: "3+ yrs", focus: "FastAPI, ONNX, ML, Matplotlib", logo: dv("python"), tier: "gold" },
+      { name: "JavaScript", experience: "2+ yrs", focus: "Node.js, Express, React 19", logo: dv("javascript"), tier: "gold" },
+      { name: "C++", experience: "2+ yrs", focus: "DSA, Competitive Programming", logo: dv("cplusplus"), tier: "gold" },
+      { name: "SQL", experience: "2+ yrs", focus: "PostgreSQL, MySQL, RLS", logo: dv("azuresqldatabase"), tier: "gold" },
+      { name: "Golang", experience: "Learning", focus: "Concurrency, Microservices", logo: dv("go", "original-wordmark"), tier: "bronze" },
     ],
   },
   {
-    name: "Backend & Systems",
-    description: "Building resilient microservices, schedulers, and streaming pipelines.",
+    name: "Backend & APIs",
+    description: "Architecting resilient microservices, WebSockets, and scalable APIs.",
     skills: [
-      { name: "FastAPI", experience: "2+ yrs", focus: "REST APIs, OpenAPI", logo: dv("fastapi"), tier: "gold" },
-      { name: "gRPC & Protobuf", experience: "1+ yr", focus: "Inter-service RPC", logo: dv("grpc"), tier: "silver" },
-      { name: "Redis", experience: "2+ yrs", focus: "Caching, Queues, Pub/Sub", logo: dv("redis"), tier: "gold" },
-      { name: "PostgreSQL", experience: "3+ yrs", focus: "Indexing, Transactions", logo: dv("postgresql"), tier: "gold" },
-      { name: "Apache Kafka", experience: "1+ yr", focus: "Event Streaming", logo: dv("apachekafka"), tier: "silver" },
+      { name: "Node.js", experience: "2+ yrs", focus: "Express, Async I/O, REST", logo: dv("nodejs"), tier: "gold" },
+      { name: "Express", experience: "2+ yrs", focus: "Controller-Service, Middleware", logo: dv("express", "original"), tier: "gold" },
+      { name: "FastAPI", experience: "2+ yrs", focus: "Pydantic, Async, OpenAPI", logo: dv("fastapi"), tier: "gold" },
+      { name: "WebSockets", experience: "1.5+ yrs", focus: "Socket.IO, Live Streams", logo: dv("socketio"), tier: "gold" },
+      { name: "JWT", experience: "2+ yrs", focus: "Auth, Tokenized Consent", logo: dv("json"), tier: "silver" },
     ],
   },
   {
-    name: "Cloud & Infrastructure",
-    description: "Containerization, CI/CD automation, and cloud deployments.",
+    name: "Databases & Storage",
+    description: "Relational, document, and in-memory databases with security and indexing.",
     skills: [
-      { name: "Docker", experience: "2+ yrs", focus: "Multi-stage, Compose", logo: dv("docker"), tier: "gold" },
-      { name: "Linux", experience: "3+ yrs", focus: "Shell, Kernel, Systemd", logo: dv("linux"), tier: "gold" },
-      { name: "GitHub Actions", experience: "2+ yrs", focus: "CI/CD Automation", logo: dv("githubactions"), tier: "gold" },
-      { name: "AWS", experience: "1+ yr", focus: "EC2, S3, IAM, Lambda", logo: dv("amazonwebservices", "original-wordmark"), tier: "silver" },
-      { name: "Git", experience: "4+ yrs", focus: "Trunk-based, Rebase", logo: dv("git"), tier: "gold" },
+      { name: "PostgreSQL", experience: "2+ yrs", focus: "Supabase, Row-Level Security", logo: dv("postgresql"), tier: "gold" },
+      { name: "MongoDB", experience: "2+ yrs", focus: "Mongoose, Scalable Schemas", logo: dv("mongodb"), tier: "gold" },
+      { name: "Redis", experience: "1.5+ yrs", focus: "TTL Tokens, In-Memory Caching", logo: dv("redis"), tier: "gold" },
+      { name: "MySQL", experience: "2+ yrs", focus: "Relational Modeling, Queries", logo: dv("mysql"), tier: "silver" },
+      { name: "Supabase", experience: "2+ yrs", focus: "Auth, Storage, RLS Policies", logo: dv("supabase"), tier: "gold" },
     ],
   },
   {
-    name: "AI / ML & Applied LLMs",
-    description: "Vector search, neural models, and retrieval-augmented systems.",
+    name: "ML, Data & Applied AI",
+    description: "Model inference, graph network analysis, and AI extraction pipelines.",
     skills: [
-      { name: "PyTorch", experience: "1+ yr", focus: "Deep Learning, Tensors", logo: dv("pytorch"), tier: "silver" },
-      { name: "LangChain", experience: "1+ yr", focus: "RAG Pipelines", logo: dv("python"), tier: "silver" },
-      { name: "Pinecone", experience: "1+ yr", focus: "Vector Retrieval", logo: dv("python"), tier: "silver" },
-      { name: "scikit-learn", experience: "2+ yrs", focus: "Classical ML", logo: dv("scikitlearn"), tier: "gold" },
+      { name: "LightGBM & ONNX", experience: "1+ yr", focus: "CPU Risk Inference", logo: dv("python"), tier: "gold" },
+      { name: "NetworkX", experience: "1+ yr", focus: "Graph Swarm & Mule Centrality", logo: dv("python"), tier: "gold" },
+      { name: "Gemini API", experience: "1+ yr", focus: "Multimodal AI & OCR", logo: dv("google"), tier: "gold" },
+      { name: "NumPy & Pandas", experience: "2+ yrs", focus: "Data Wrangling, Pipelines", logo: dv("pandas"), tier: "gold" },
+      { name: "Matplotlib (3D)", experience: "1.5+ yrs", focus: "CAD & Nodal Load Plotting", logo: dv("python"), tier: "silver" },
     ],
   },
   {
-    name: "Frontend & Interfaces",
-    description: "Modern component-driven web interfaces and interactive dashboards.",
+    name: "DevOps & Cloud",
+    description: "Containerization, cloud infrastructure, deployment, and automation.",
     skills: [
-      { name: "React", experience: "2+ yrs", focus: "Hooks, Performance", logo: dv("react"), tier: "gold" },
-      { name: "Next.js", experience: "1+ yr", focus: "App Router, SSR", logo: dv("nextjs"), tier: "silver" },
-      { name: "Tailwind CSS", experience: "2+ yrs", focus: "Responsive, Design Systems", logo: dv("tailwindcss"), tier: "gold" },
+      { name: "Docker", experience: "2+ yrs", focus: "Containers, Multi-stage", logo: dv("docker"), tier: "gold" },
+      { name: "AWS", experience: "1+ yr", focus: "EC2, App Runner, API Gateway", logo: dv("amazonwebservices", "original-wordmark"), tier: "silver" },
+      { name: "Git & GitHub", experience: "3+ yrs", focus: "Rebase, PR Cycles, FOSSEE", logo: dv("git"), tier: "gold" },
+      { name: "Nginx", experience: "1+ yr", focus: "Reverse Proxy, TLS", logo: dv("nginx"), tier: "silver" },
+      { name: "Vercel & Render", experience: "2+ yrs", focus: "Production Deployments", logo: dv("vercel"), tier: "gold" },
+    ],
+  },
+  {
+    name: "Core CS Fundamentals",
+    description: "Rigorous algorithmic foundations and systems design principles.",
+    skills: [
+      { name: "DSA", experience: "3+ yrs", focus: "280+ LeetCode Solved", logo: dv("cplusplus"), tier: "gold" },
+      { name: "System Design", experience: "2+ yrs", focus: "Microservices, WebSockets", logo: dv("networkx", "original"), tier: "gold" },
+      { name: "DBMS & OS", experience: "2+ yrs", focus: "Transactions, Concurrency", logo: dv("linux"), tier: "gold" },
+      { name: "Computer Networks", experience: "2+ yrs", focus: "TCP/IP, REST, WebSockets", logo: dv("networkx", "original"), tier: "gold" },
     ],
   },
 ]
 
 /** Handful of top core competencies featured on the landing scroll */
 export const topSkills: SkillItem[] = [
-  { name: "Python", experience: "3+ yrs", focus: "FastAPI, Async, ML", logo: dv("python"), tier: "gold" },
-  { name: "Go", experience: "1.5+ yrs", focus: "Concurrency, gRPC, CLI", logo: dv("go", "original-wordmark"), tier: "gold" },
-  { name: "Rust", experience: "1+ yr", focus: "Systems, Memory Safety", logo: dv("rust", "original"), tier: "silver" },
-  { name: "PostgreSQL", experience: "3+ yrs", focus: "Indexing, Transactions", logo: dv("postgresql"), tier: "gold" },
-  { name: "Redis", experience: "2+ yrs", focus: "Caching, Queues, Pub/Sub", logo: dv("redis"), tier: "gold" },
-  { name: "Docker", experience: "2+ yrs", focus: "Multi-stage, Compose", logo: dv("docker"), tier: "gold" },
-  { name: "PyTorch", experience: "1+ yr", focus: "Deep Learning, Tensors", logo: dv("pytorch"), tier: "silver" },
-  { name: "React", experience: "2+ yrs", focus: "Hooks, Performance", logo: dv("react"), tier: "gold" },
+  { name: "Python", experience: "3+ yrs", focus: "FastAPI, ONNX, ML, Matplotlib", logo: dv("python"), tier: "gold" },
+  { name: "Node.js", experience: "2+ yrs", focus: "Express, Controller-Service", logo: dv("nodejs"), tier: "gold" },
+  { name: "FastAPI", experience: "2+ yrs", focus: "Async, OpenAPI, ML Scoring", logo: dv("fastapi"), tier: "gold" },
+  { name: "PostgreSQL", experience: "2+ yrs", focus: "Supabase, Row-Level Security", logo: dv("postgresql"), tier: "gold" },
+  { name: "Docker", experience: "2+ yrs", focus: "Containers, Multi-stage", logo: dv("docker"), tier: "gold" },
+  { name: "WebSockets", experience: "1.5+ yrs", focus: "Socket.IO, Event Streams", logo: dv("socketio"), tier: "gold" },
+  { name: "Gemini API", experience: "1+ yr", focus: "Multimodal AI & OCR Pipelines", logo: dv("google"), tier: "gold" },
+  { name: "Redis", experience: "1.5+ yrs", focus: "TTL Tokens, Caching, Pub/Sub", logo: dv("redis"), tier: "gold" },
 ]
 
 export const achievements = [
-  { metric: "Top 5%", label: "ICPC Regionals", note: "Qualified for regional finals among 800+ competitive programming teams." },
-  { metric: "1st Place", label: "National Hackathon", note: "Built a real-time anomaly detection stream in 24 hours." },
-  { metric: "4.0", label: "Major CS GPA", note: "Top tier academic standing in core systems and computer science coursework." },
-  { metric: "500+", label: "LeetCode Problems", note: "Consistent algorithmic mastery across graph algorithms, dynamic programming, and concurrency." },
+  { metric: "9.73", label: "CGPA · Academic Topper", note: "Academic Topper for 2024-25 & 2025-26 in B.Tech Computer Science & Engineering at ITM Skills University." },
+  { metric: "280+", label: "LeetCode Problems", note: "Consistent algorithmic mastery across graph algorithms, dynamic programming, and time/space complexity optimization." },
+  { metric: "25+", label: "FOSSEE Contributor Team", note: "Core developer on OSDAG-BRIDGE at IIT Bombay building CAD generation, plotting, and LaTeX reporting modules." },
+  { metric: "3", label: "Production Full-Stack Systems", note: "Architected and shipped end-to-end applications with ONNX ML inference, WebSockets, Supabase RLS, and AI pipelines." },
 ]
 
 export const coCurricular = [
-  { period: "2024 – Present", title: "Open Source Club — Lead", note: "Organize monthly contribution sprints and mentor 50+ developers on upstream PRs." },
-  { period: "2023 – 2024", title: "Technical Writing", note: "Published articles on distributed queues, database indexing, and backend architectures." },
-  { period: "2022 – 2023", title: "Competitive Programming Society", note: "Coordinated weekly algorithmic problem-solving sessions and mock contests." },
+  { period: "2025 – Present", title: "Lead — Competitive Coding Club", note: "Organized campus-wide coding contests and DSA workshops; mentored juniors in Data Structures, Algorithms, and complexity analysis at ITM Skills University." },
+  { period: "2026 – Present", title: "Open Source Developer — FOSSEE IIT Bombay", note: "Working inside OSDAG-BRIDGE, contributing CAD generation, nodal load visualization, and automated LaTeX engineering plots." },
+  { period: "2024 – Present", title: "Technical Architecture & Systems", note: "Designing fraud intelligence platforms, AI health data extraction, and real-time backend-authoritative game engines." },
 ]
 
 export const certifications = [
-  { name: "AWS Certified Cloud Practitioner", issuer: "Amazon Web Services", date: "2025", verify: "#" },
-  { name: "Google Data Analytics Professional", issuer: "Google", date: "2024", verify: "#" },
-  { name: "Meta Backend Developer Certificate", issuer: "Meta", date: "2024", verify: "#" },
-  { name: "Docker Certified Associate Foundations", issuer: "Docker", date: "2023", verify: "#" },
+  { name: "B.Tech Computer Science & Engineering", issuer: "ITM Skills University", date: "2024 – 2028 (CGPA: 9.73)", verify: "#" },
+  { name: "Software Development Internship", issuer: "FOSSEE – IIT Bombay", date: "2026", verify: "https://github.com/Aditya-Donde/OsdagBridge/pulls?q=is%3Apr+author%3ASoham-1304" },
 ]
 
 export const siteLinks = {
   github: "https://github.com/Soham-1304",
-  linkedin: "#",
-  email: "soham.karandikar007@gmail.com",
-  resume: "#",
+  linkedin: "https://www.linkedin.com/in/soham-karandikar1304",
+  leetcode: "https://leetcode.com/u/SomK_1304/",
+  email: "sohamiscoding@gmail.com",
+  phone: "+91-7588720672",
+  resume: "/Soham_Resume1.pdf",
 }

@@ -27,6 +27,8 @@
   --nav-h: 88px;
 }
 
+
+
 @layer base {
   html {
     scroll-behavior: smooth;

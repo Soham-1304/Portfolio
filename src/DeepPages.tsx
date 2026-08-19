@@ -134,19 +134,19 @@ export function ProjectsDeep({ onBack, focus }: { onBack: () => void; focus?: st
           </div>
         </div>
 
-        {/* ── MAC-SIZED SAFARI SHOWCASE FLANKED BY LEFT & RIGHT CAROUSEL BUTTONS ── */}
-        <div className="relative flex items-center justify-between gap-3 sm:gap-5">
+        {/* ── MAC-SIZED SAFARI SHOWCASE (Full width matching top card, buttons absolute outside) ── */}
+        <div className="relative w-full">
           {/* Left Carousel Button */}
           <button
             onClick={() => go(activeIdx - 1)}
             aria-label="Previous project"
-            className="hidden sm:grid place-items-center h-12 w-12 rounded-full border-2 border-ink bg-white text-ink shadow-md hover:bg-ink hover:text-white transition-all cursor-pointer active:scale-90 shrink-0 select-none z-10"
+            className="hidden sm:grid absolute -left-16 top-1/2 -translate-y-1/2 place-items-center h-12 w-12 rounded-full border-2 border-ink bg-white text-ink shadow-md hover:bg-accent hover:text-ink transition-all cursor-pointer active:scale-90 select-none z-30"
           >
             <ArrowRight className="rotate-180 w-4 h-4" />
           </button>
 
-          {/* Center Safari Showcase Frame */}
-          <div className="relative flex-1 aspect-[16/10] sm:aspect-[16/9.5] min-h-[460px] md:min-h-[560px] perspective-1000">
+          {/* Center Safari Showcase Frame — full width identical to top card */}
+          <div className="relative w-full aspect-[16/10] sm:aspect-[16/9.5] min-h-[460px] md:min-h-[560px] perspective-1000">
             <div
               className={`relative w-full h-full transform-style-3d transition-transform duration-500 ease-in-out ${
                 isFlipped ? "rotate-y-180" : ""
@@ -187,8 +187,9 @@ export function ProjectsDeep({ onBack, focus }: { onBack: () => void; focus?: st
                         title="View Architecture Specification"
                         className="inline-flex items-center gap-1.5 bg-white hover:bg-surface border border-line-strong text-ink text-xs font-mono font-bold px-3 py-1 rounded-md transition-all cursor-pointer shadow-2xs active:scale-95"
                       >
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                          <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67" />
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                          <polyline points="23 4 23 10 17 10" />
+                          <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10" />
                         </svg>
                         <span>Architecture Spec</span>
                       </button>
@@ -213,9 +214,7 @@ export function ProjectsDeep({ onBack, focus }: { onBack: () => void; focus?: st
                       onLoad={() => setIframeLoaded(true)}
                     />
 
-                    {/* Transparent overlay: captures mouse events for custom cursor.
-                        Click the overlay → show the "Interact" tooltip (overlay disappears on click to let user interact with iframe).
-                        We use pointer-events on the overlay itself, not on the iframe. */}
+                    {/* Transparent overlay: captures mouse events for custom cursor */}
                     <div
                       className="absolute inset-0 z-20 group"
                       style={{ pointerEvents: "none" }}
@@ -243,10 +242,11 @@ export function ProjectsDeep({ onBack, focus }: { onBack: () => void; focus?: st
                     </div>
                     <button
                       onClick={() => setIsFlipped(false)}
-                      className="inline-flex items-center gap-1.5 bg-ink text-white font-mono text-xs font-bold px-3.5 py-2 rounded-md hover:bg-ash transition-all cursor-pointer shadow-xs active:scale-95"
+                      className="inline-flex items-center gap-2 bg-ink text-white font-mono text-xs font-bold px-3.5 py-2 rounded-md hover:bg-accent hover:text-ink transition-all cursor-pointer shadow-xs active:scale-95"
                     >
-                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M2.5 2v6h6M2.66 15.57a10 10 0 0 0 18.66-3.57" />
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <polyline points="1 4 1 10 7 10" />
+                        <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10" />
                       </svg>
                       <span>Return to Live Window</span>
                     </button>
@@ -306,7 +306,7 @@ export function ProjectsDeep({ onBack, focus }: { onBack: () => void; focus?: st
           <button
             onClick={() => go(activeIdx + 1)}
             aria-label="Next project"
-            className="hidden sm:grid place-items-center h-12 w-12 rounded-full border-2 border-ink bg-white text-ink shadow-md hover:bg-ink hover:text-white transition-all cursor-pointer active:scale-90 shrink-0 select-none z-10"
+            className="hidden sm:grid absolute -right-16 top-1/2 -translate-y-1/2 place-items-center h-12 w-12 rounded-full border-2 border-ink bg-white text-ink shadow-md hover:bg-accent hover:text-ink transition-all cursor-pointer active:scale-90 select-none z-30"
           >
             <ArrowRight className="w-4 h-4" />
           </button>

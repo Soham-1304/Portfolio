@@ -249,19 +249,19 @@ export function ProjectsHome({ onDeep }: { onDeep: (id?: string) => void }) {
           </div>
         </div>
 
-        {/* ── MAC-SIZED SAFARI WINDOW FLANKED BY LEFT & RIGHT CAROUSEL BUTTONS ── */}
-        <div className="relative flex items-center justify-between gap-3 sm:gap-5">
-          {/* Left Circular Carousel Button */}
+        {/* ── MAC-SIZED SAFARI WINDOW (Full width matching top card, buttons float outside) ── */}
+        <div className="relative w-full">
+          {/* Left Circular Carousel Button — absolute outside left */}
           <button
             onClick={() => go(activeIdx - 1)}
             aria-label="Previous project"
-            className="hidden sm:grid place-items-center h-12 w-12 rounded-full border-2 border-ink bg-white text-ink shadow-md hover:bg-ink hover:text-white transition-all cursor-pointer active:scale-90 shrink-0 select-none z-10"
+            className="hidden sm:grid absolute -left-16 top-1/2 -translate-y-1/2 place-items-center h-12 w-12 rounded-full border-2 border-ink bg-white text-ink shadow-md hover:bg-accent hover:text-ink hover:border-ink transition-all cursor-pointer active:scale-90 select-none z-10"
           >
             <ArrowRight className="rotate-180 w-4 h-4" />
           </button>
 
-          {/* Center Safari Preview Frame */}
-          <div className="relative flex-1 max-w-5xl mx-auto">
+          {/* Center Safari Preview Frame — identical full width to top card */}
+          <div className="relative w-full">
             <Safari url={`https://${p.domain}`} className="w-full shadow-lg">
               <div className="relative w-full aspect-[16/10] sm:aspect-[16/9.5] min-h-[380px] sm:min-h-[460px] md:min-h-[520px] bg-[#18181b] overflow-hidden">
                 {!iframeLoaded && (
@@ -289,11 +289,11 @@ export function ProjectsHome({ onDeep }: { onDeep: (id?: string) => void }) {
             </Safari>
           </div>
 
-          {/* Right Circular Carousel Button */}
+          {/* Right Circular Carousel Button — absolute outside right */}
           <button
             onClick={() => go(activeIdx + 1)}
             aria-label="Next project"
-            className="hidden sm:grid place-items-center h-12 w-12 rounded-full border-2 border-ink bg-white text-ink shadow-md hover:bg-ink hover:text-white transition-all cursor-pointer active:scale-90 shrink-0 select-none z-10"
+            className="hidden sm:grid absolute -right-16 top-1/2 -translate-y-1/2 place-items-center h-12 w-12 rounded-full border-2 border-ink bg-white text-ink shadow-md hover:bg-accent hover:text-ink hover:border-ink transition-all cursor-pointer active:scale-90 select-none z-10"
           >
             <ArrowRight className="w-4 h-4" />
           </button>
@@ -431,21 +431,22 @@ export function About() {
         <div>
           <SectionHead id="about" num="04 / About" title="Engineer, first." />
           <p className="text-xl md:text-2xl leading-relaxed font-display font-medium text-ink">
-            I like problems that live below the interface — schedulers, streaming pipelines,
-            retrieval systems, and the underlying infrastructure that must be rock solid before anything else can succeed.
+            I build high-throughput backend services, real-time event-driven architectures,
+            and machine-learning scoring pipelines designed for scale, resilience, and determinism.
           </p>
           <p className="mt-6 text-ash leading-relaxed max-w-xl text-base">
-            I'm a final-year B.Tech Computer Science student specializing in backend systems and applied AI/ML.
-            I focus on resilient API contracts, distributed observability, idempotency, and writing documentation
-            that empowers team speed.
+            Currently pursuing B.Tech Computer Science & Engineering at ITM Skills University (CGPA: 9.73, Academic Topper)
+            and contributing to OSDAG-BRIDGE at FOSSEE IIT Bombay. I lead the Competitive Coding Club, have solved 280+ problems on LeetCode,
+            and focus on clean controller-service architectures, WebSockets, and ONNX ML inference.
           </p>
         </div>
         <dl className="space-y-4 md:pt-16 bg-surface border border-line p-6 md:p-8 rounded-xl">
           {[
-            ["Education", "B.Tech Computer Science & Engineering (2022–2026)"],
-            ["Focus", "Backend Systems · Distributed Architecture · Applied ML"],
-            ["Currently", "Building Nexus & contributing upstream to open source"],
-            ["Location", "India · Available for remote & on-site opportunities"],
+            ["Education", "B.Tech CSE (2024–2028) · CGPA: 9.73"],
+            ["Institution", "ITM Skills University · Academic Topper"],
+            ["Internship", "FOSSEE – IIT Bombay (Open Source)"],
+            ["Focus", "Backend APIs · WebSockets · ML & Applied AI"],
+            ["Location", "Kharghar, Maharashtra · Open to Opportunities"],
           ].map(([k, v]) => (
             <div key={k} className="border-b border-line pb-3 last:border-b-0 last:pb-0">
               <dt className="eyebrow mb-1 font-mono text-[10px]">{k}</dt>
@@ -555,6 +556,14 @@ export function Footer({ onNav }: { onNav: (id: string) => void }) {
               GitHub ↗
             </a>
             <a
+              href={siteLinks.leetcode}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:underline underline-offset-4 cursor-pointer"
+            >
+              LeetCode ↗
+            </a>
+            <a
               href={siteLinks.linkedin}
               target="_blank"
               rel="noopener noreferrer"
@@ -564,15 +573,11 @@ export function Footer({ onNav }: { onNav: (id: string) => void }) {
             </a>
             <a
               href={siteLinks.resume}
-              onClick={(e) => {
-                if (siteLinks.resume === "#") {
-                  e.preventDefault()
-                  onNav("top")
-                }
-              }}
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-white hover:underline underline-offset-4 cursor-pointer"
             >
-              Résumé
+              Résumé ↗
             </a>
             <button
               onClick={() => onNav("top")}
