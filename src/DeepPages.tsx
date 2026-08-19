@@ -511,19 +511,26 @@ export function SkillsDeep({ onBack }: { onBack: () => void }) {
         </h2>
         <div className="divide-y divide-line border-y border-line">
           {certifications.map((c) => (
-            <div key={c.name} className="grid md:grid-cols-[1.5fr_1fr_auto_auto] gap-2 md:gap-8 py-5 items-baseline">
+            <div
+              key={c.name}
+              className="grid grid-cols-1 md:grid-cols-[2.2fr_1.6fr_1.4fr_auto] gap-2 md:gap-6 py-5 items-center"
+            >
               <span className="font-display font-bold text-lg text-ink">{c.name}</span>
-              <span className="text-ash text-sm">{c.issuer}</span>
+              <span className="text-ash text-sm font-medium">{c.issuer}</span>
               <span className="text-mute text-sm font-mono">{c.date}</span>
-              <a
-                href={c.verify}
-                onClick={(e) => {
-                  if (c.verify === "#") e.preventDefault()
-                }}
-                className="inline-flex items-center gap-1 text-sm font-semibold text-ink hover:underline cursor-pointer"
-              >
-                Verify Credential <ArrowRight className="w-3.5 h-3.5" />
-              </a>
+              <div className="md:justify-self-end">
+                <a
+                  href={c.verify}
+                  target={c.verify !== "#" ? "_blank" : undefined}
+                  rel="noopener noreferrer"
+                  onClick={(e) => {
+                    if (c.verify === "#") e.preventDefault()
+                  }}
+                  className="inline-flex items-center gap-1 text-sm font-semibold text-ink hover:underline cursor-pointer"
+                >
+                  Verify Credential <ArrowRight className="w-3.5 h-3.5" />
+                </a>
+              </div>
             </div>
           ))}
         </div>
