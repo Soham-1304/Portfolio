@@ -446,7 +446,7 @@ export function About() {
             ["Institution", "ITM Skills University · Academic Topper"],
             ["Internship", "FOSSEE – IIT Bombay (Open Source)"],
             ["Focus", "Backend APIs · WebSockets · ML & Applied AI"],
-            ["Location", "Kharghar, Maharashtra · Open to Opportunities"],
+            ["Location", "Thane, Maharashtra · Open to Opportunities"],
           ].map(([k, v]) => (
             <div key={k} className="border-b border-line pb-3 last:border-b-0 last:pb-0">
               <dt className="eyebrow mb-1 font-mono text-[10px]">{k}</dt>
@@ -501,7 +501,7 @@ export function CoCurricular() {
         id="cocurricular"
         num="06 / Co-curricular"
         title="Beyond the code."
-        intro="Leadership, technical writing, and mentoring in developer communities."
+        intro="Leading communities, contributing to open source, and turning technical curiosity into useful systems."
       />
       <div ref={ref} className="reveal divide-y divide-line border-y border-line">
         {coCurricular.map((c) => (

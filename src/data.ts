@@ -17,7 +17,7 @@ export type Project = {
 export const experience = {
   org: "FOSSEE – IIT Bombay",
   role: "Software Development Intern (Open Source)",
-  date: "May 2026 – Aug 2026",
+  date: "May – Aug 2026",
   location: "On-Site · IIT Bombay",
   summary:
     "Working inside OSDAG-BRIDGE, an open-source bridge design and structural analysis tool built by a 25+ contributor engineering team.",
@@ -220,9 +220,9 @@ export const achievements = [
 ]
 
 export const coCurricular = [
-  { period: "2025 – Present", title: "Lead — Competitive Coding Club", note: "Organized campus-wide coding contests and DSA workshops; mentored juniors in Data Structures, Algorithms, and complexity analysis at ITM Skills University." },
-  { period: "2026 – Present", title: "Open Source Developer — FOSSEE IIT Bombay", note: "Working inside OSDAG-BRIDGE, contributing CAD generation, nodal load visualization, and automated LaTeX engineering plots." },
-  { period: "2024 – Present", title: "Technical Architecture & Systems", note: "Designing fraud intelligence platforms, AI health data extraction, and real-time backend-authoritative game engines." },
+  { period: "2025 – Present", title: "Lead — Competitive Coding Club", note: "Building a stronger problem-solving culture through campus-wide contests, DSA workshops, and hands-on mentoring at ITM Skills University." },
+  { period: "May – Aug 2026", title: "Open Source Developer — FOSSEE IIT Bombay", note: "Contributed to OSDAG-BRIDGE through CAD generation, nodal-load visualization, and automated LaTeX engineering reports." },
+  { period: "2024 – Present", title: "Technical Architecture & Systems", note: "I build by turning curiosity into projects like fraud detection, health data extraction, and automation." },
 ]
 
 export const certifications = [

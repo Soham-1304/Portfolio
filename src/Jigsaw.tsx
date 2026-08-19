@@ -4,7 +4,6 @@ import { ArrowRight } from "./lib"
 interface PieceData {
   id: string
   label: string
-  subtitle: string
   path: string
   centerX: number
   centerY: number
@@ -20,7 +19,6 @@ const pieces: PieceData[] = [
   {
     id: "projects",
     label: "PROJECTS",
-    subtitle: "Interactive Safari Demos & Architectures",
     order: 0,
     centerX: 370,
     centerY: 160,
@@ -42,7 +40,6 @@ const pieces: PieceData[] = [
   {
     id: "skills",
     label: "SKILLS",
-    subtitle: "Tiered Hexagonal Matrix",
     order: 1,
     centerX: 970,
     centerY: 80,
@@ -61,7 +58,6 @@ const pieces: PieceData[] = [
   {
     id: "about",
     label: "ABOUT",
-    subtitle: "Background & Core Principles",
     order: 3,
     centerX: 970,
     centerY: 230,
@@ -82,7 +78,6 @@ const pieces: PieceData[] = [
   {
     id: "experience",
     label: "EXPERIENCE",
-    subtitle: "Platform Engineering & Open Source",
     order: 2,
     centerX: 235,
     centerY: 450,
@@ -101,7 +96,6 @@ const pieces: PieceData[] = [
   {
     id: "achievements",
     label: "ACHIEVEMENTS",
-    subtitle: "ICPC, Hackathons & Metrics",
     order: 4,
     centerX: 645,
     centerY: 450,
@@ -122,7 +116,6 @@ const pieces: PieceData[] = [
   {
     id: "cocurricular",
     label: "CO-CURRICULAR",
-    subtitle: "Leadership, Community & Writing",
     order: 5,
     centerX: 1010,
     centerY: 450,
@@ -171,12 +164,12 @@ export default function Jigsaw({ onSelect }: { onSelect: (id: string) => void })
   }
 
   const mobilePieces = [
-    { id: "projects", num: "01", title: "Projects", desc: "Interactive Safari Laptop Carousel & Live Demos" },
-    { id: "experience", num: "02", title: "Experience", desc: "Backend Engineering, Observability & Open Source" },
-    { id: "skills", num: "03", title: "Skills", desc: "Tiered Matrix with Skill Badges" },
-    { id: "about", num: "04", title: "About", desc: "Background, Focus Areas & Engineering Principles" },
-    { id: "achievements", num: "05", title: "Achievements", desc: "Competitive Programming & Hackathon Wins" },
-    { id: "cocurricular", num: "06", title: "Co-curricular", desc: "Open Source Leadership & Technical Writing" },
+    { id: "projects", num: "01", title: "Projects" },
+    { id: "experience", num: "02", title: "Experience" },
+    { id: "skills", num: "03", title: "Skills" },
+    { id: "about", num: "04", title: "About" },
+    { id: "achievements", num: "05", title: "Achievements" },
+    { id: "cocurricular", num: "06", title: "Co-curricular" },
   ]
 
   // Fall offset calculations for initial unassembled state
@@ -271,19 +264,6 @@ export default function Jigsaw({ onSelect }: { onSelect: (id: string) => void })
                     {p.label}
                   </text>
 
-                  {/* Piece Subtitle */}
-                  <text
-                    x={p.centerX}
-                    y={p.centerY + 18}
-                    textAnchor="middle"
-                    dominantBaseline="middle"
-                    fill={isHovered || isActive ? "#cccccc" : "#666666"}
-                    className="font-mono transition-colors duration-200"
-                    style={{ fontSize: 11, letterSpacing: "0.05em" }}
-                  >
-                    {p.subtitle}
-                  </text>
-
                   {/* Arrow Indicator on Hover */}
                   {isHovered && (
                     <text
@@ -315,7 +295,6 @@ export default function Jigsaw({ onSelect }: { onSelect: (id: string) => void })
               <div>
                 <span className="font-mono text-xs text-mute group-hover:text-white/60 font-semibold">{p.num}</span>
                 <h3 className="font-display font-extrabold text-2xl mt-0.5 text-ink group-hover:text-white">{p.title}</h3>
-                <p className="text-xs text-mute group-hover:text-white/75 mt-1">{p.desc}</p>
               </div>
               <div className="h-9 w-9 rounded-full border border-line-strong group-hover:border-white/50 flex items-center justify-center group-hover:bg-white/10 shrink-0 ml-3">
                 <ArrowRight className="w-4 h-4 text-ink group-hover:text-white group-hover:translate-x-0.5 transition-transform" />
